@@ -1,0 +1,25 @@
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+
+# Generate example dataset
+# In practice, you would load your own dataset
+# Features could include team statistics, player performance, etc.
+X = [[team1_stat_1, team1_stat_2], [team2_stat_1, team2_stat_2], ...]  # Features
+y = [1, 0, ...]  # Labels (1 = Win, 0 = Loss)
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create a logistic regression model
+model = LogisticRegression()
+
+# Train the model on the training data
+model.fit(X_train, y_train)
+
+# Make predictions on the test data
+predictions = model.predict(X_test)
+
+# Calculate accuracy of the model
+accuracy = accuracy_score(y_test, predictions)
+print(f"Model Accuracy: {accuracy:.2f}")
